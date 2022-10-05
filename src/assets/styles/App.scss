@@ -1,0 +1,31 @@
+body {
+	background: #121829;
+
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.02em;
+	color: #EBEEF5;
+}
+
+#root {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.movies {
+	&__container {
+		max-width: 1440px;
+	}
+	&__content {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 40px;
+	}
+	&__item {
+	}
+}

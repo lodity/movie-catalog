@@ -1,12 +1,13 @@
 import React from 'react';
-import NowPlayingMoviesContainer from './components/NowPlayingMoviesContainer';
-import './styles/App.css';
-import './styles/nullstyle.css';
+import PopularMoviesContainer from './components/PopularMoviesContainer';
+import './assets/styles/App.css';
+import './assets/styles/fonts.css';
+import './assets/styles/nullstyle.css';
 
 function App() {
 	return (
 		<div className="App">
-			<NowPlayingMoviesContainer />
+			<PopularMoviesContainer />
 		</div>
 	);
 }

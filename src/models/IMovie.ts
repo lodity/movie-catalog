@@ -3,13 +3,12 @@ export interface IMovies {
 	results: INowPlayingCard[];
 	total_pages: number;
 	total_results: number;
-	errorMessage: string;
-	items: INowPlayingCard[];
 }
 
 export interface INowPlayingCard {
 	title: string;
 	id: number;
+	vote_average: number;
 	overview: string;
 	poster_path: string;
 }
