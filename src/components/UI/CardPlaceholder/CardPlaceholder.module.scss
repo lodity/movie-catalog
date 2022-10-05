@@ -1,0 +1,41 @@
+.cardPlaceholder {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 8px 8px 16px;
+	gap: 16px;
+
+	position: relative;
+	width: 282px;
+	height: 472px;
+
+	background: #121829;
+	backdrop-filter: blur(40px);
+	border-radius: 12px;
+
+	&Rating {
+		position: absolute;
+		width: 60px;
+		height: 32px;
+		left: 16px;
+		top: 16px;
+
+		background: rgba(0, 0, 0, 0.2);
+		backdrop-filter: blur(4px);
+		border-radius: 8px;
+	}
+	&Poster {
+		width: 266px;
+		height: 400px;
+
+		background: #20283e;
+		border-radius: 8px;
+	}
+	&Title {
+		width: 150px;
+		height: 16px;
+
+		background: #20283e;
+		border-radius: 8px;
+	}
+}
