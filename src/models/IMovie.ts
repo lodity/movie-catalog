@@ -1,11 +1,4 @@
-export interface IMovies {
-	page: number;
-	results: INowPlayingCard[];
-	total_pages: number;
-	total_results: number;
-}
-
-export interface INowPlayingCard {
+export interface ICard {
 	title: string;
 	id: number;
 	vote_average: number;

@@ -1,5 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
-import { INowPlayingCard, IMovies } from '../models/IMovie';
+import { ICard } from '../models/IMovie';
+
+interface IMovies {
+	page: number;
+	results: ICard[];
+	total_pages: number;
+	total_results: number;
+}
 
 export const movieAPI = createApi({
 	reducerPath: 'movieAPI',
