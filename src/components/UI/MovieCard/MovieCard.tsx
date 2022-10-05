@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { INowPlayingCard } from '../../../models/IMovie';
+import { ICard } from '../../../models/IMovie';
 import classes from './MovieCard.module.css';
 
 interface MovieItemProps {
-	movie: INowPlayingCard;
+	movie: ICard;
 }
 
 const MovieCard: FC<MovieItemProps> = ({ movie }) => {
@@ -29,7 +29,7 @@ const MovieCard: FC<MovieItemProps> = ({ movie }) => {
 			</div>
 			{/*======================================================*/}
 			<img
-				className={classes.movieCardImage}
+				className={classes.movieCardPoster}
 				src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
 				alt={movie.title}
 			/>
