@@ -1,0 +1,48 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  z-index: 10;
+}
+.wrapper.Active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(18, 24, 41, 0.8);
+  border: 1px solid #20283e;
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+}
+.popupCloseButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 88.57%;
+  top: 5.56%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  border-radius: 8px;
+}
+.popupContent {
+  padding: 80px;
+  border-radius: 16px;
+  min-width: 250px;
+}
+
+/*# sourceMappingURL=Popup.module.css.map */
