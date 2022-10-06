@@ -1,0 +1,31 @@
+.baseButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+  gap: 8px;
+  min-width: 121px;
+  min-height: 56px;
+  background: #7b6ef6;
+  border: 2px solid #7b6ef6;
+  border-radius: 12px;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.baseButton:hover {
+  background: #5a4af4;
+}
+.baseButton:active {
+  background: #7b6ef6;
+  border: 2px solid #5a4af4;
+  text-shadow: -1px 1px 0 #5a4af4, 1px 1px 0 #5a4af4, 1px -1px 0 #5a4af4, -1px -1px 0 #5a4af4;
+}
+.baseButton:disabled {
+  opacity: 0.4;
+  background: #7b6ef6;
+  cursor: default;
+}
+
+/*# sourceMappingURL=BaseButton.module.css.map */
