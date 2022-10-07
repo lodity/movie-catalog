@@ -13,6 +13,62 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 120px;
+  gap: 16px;
+  max-width: 1440px;
+  width: 100vw;
+}
+.header__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 48px;
+  row-gap: 16px;
+}
+.header__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #a8aebf;
+}
+
+.notFoundPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.notFoundPage__image:not(:last-child) {
+  margin-bottom: 40px;
+}
+.notFoundPage__title {
+  font-size: 48px;
+  line-height: 1.17;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+.notFoundPage__title:not(:last-child) {
+  margin-bottom: 16px;
+}
+.notFoundPage__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #8e95a9;
+  max-width: 588px;
+}
+.notFoundPage__text:not(:last-child) {
+  margin-bottom: 24px;
 }
 
 .movies__container {
