@@ -14,8 +14,8 @@ export const movieAPI = createApi({
 		baseUrl: 'https://api.themoviedb.org/3',
 	}),
 	endpoints: (build) => ({
-		popularMovies: build.query<IMovies, number>({
-			query: (page: number = 2) => ({
+		popularMovies: build.query<IMovies | undefined, number>({
+			query: (page: number) => ({
 				url: '/movie/popular',
 				params: {
 					api_key: '918026d985ab80afa1ae6f0b53c6aa70',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classes from './CardPlaceholder.module.css';
 
 const CardPlaceholder = () => {

@@ -9,6 +9,13 @@ body {
   color: #ebeef5;
 }
 
+.title {
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
 #root {
   display: flex;
   align-items: center;
@@ -23,7 +30,7 @@ body {
   padding: 16px 120px;
   gap: 16px;
   max-width: 1440px;
-  width: 100vw;
+  width: 100%;
 }
 .header__list {
   display: flex;
@@ -71,15 +78,37 @@ body {
   margin-bottom: 24px;
 }
 
-.movies__container {
-  max-width: 1440px;
-}
-.movies__content {
+.movies {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+.movies__container {
+  max-width: 1440px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0 110px;
+}
+.movies__title {
+  margin-bottom: 24px;
+}
+.movies__input {
+  margin-bottom: 48px;
+}
+.movies__itemsCounter {
+  margin-bottom: 24px;
+}
+.movies__area {
+  margin-bottom: 156px;
+}
+.movies__cards {
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 40px;
+  row-gap: 20px;
+  column-gap: 24px;
 }
 
 /*# sourceMappingURL=App.css.map */

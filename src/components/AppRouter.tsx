@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { privateRoutes } from '../routes/routes';
 
 const AppRouter = () => {
-	console.log(privateRoutes);
+	//console.log(privateRoutes);
 	return (
 		<Routes>
 			{privateRoutes.map((route) => (
