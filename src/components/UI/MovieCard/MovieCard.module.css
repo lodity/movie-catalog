@@ -18,6 +18,7 @@
 }
 .movieCardTextBlock {
   padding: 8px;
+  color: #EBEEF5;
 }
 .ratingButton {
   display: flex;

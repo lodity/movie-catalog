@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { ICard } from '../../../models/IMovie';
 import classes from './MovieCard.module.css';
+import { Link } from 'react-router-dom';
 
 interface MovieItemProps {
 	movie: ICard;
@@ -8,8 +9,7 @@ interface MovieItemProps {
 
 const MovieCard: FC<MovieItemProps> = ({ movie }) => {
 	return (
-		<div className={classes.movieCard}>
-			{/*TODO Convert to button ============================*/}
+		<Link className={classes.movieCard} to={`/movies/:${movie.id}`}>
 			<div className={classes.ratingButton}>
 				<svg
 					width="16"
@@ -39,7 +39,7 @@ const MovieCard: FC<MovieItemProps> = ({ movie }) => {
 			<div className={classes.movieCardTextBlock}>
 				<div className={classes.movieCardTitle}>{movie.title}</div>
 			</div>
-		</div>
+		</Link>
 	);
 };
 
