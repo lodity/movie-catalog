@@ -3,9 +3,8 @@ import classes from './Popup.module.css';
 
 interface PopupProps {
 	children: JSX.Element;
-	// TODO set right type
-	visiblePopup: any;
-	setVisiblePopup: any;
+	visiblePopup: boolean;
+	setVisiblePopup: Function;
 	// ====================
 }
 
@@ -14,7 +13,6 @@ const Popup: FC<PopupProps> = ({ children, visiblePopup, setVisiblePopup }) => {
 	if (visiblePopup) {
 		rootClasses.push(classes.Active);
 	}
-
 	return (
 		<div
 			className={rootClasses.join(' ')}
