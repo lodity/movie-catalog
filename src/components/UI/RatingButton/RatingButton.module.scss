@@ -1,0 +1,18 @@
+.ratingButton {
+	display: flex;
+	align-items: center;
+	padding: 4px 8px;
+	gap: 4px;
+
+	background: rgba(0, 0, 0, 0.65);
+	backdrop-filter: blur(4px);
+
+	border-radius: 8px;
+
+	&Rating {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.5;
+		color: #ffad49;
+	}
+}
