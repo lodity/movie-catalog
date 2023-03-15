@@ -1,15 +1,17 @@
 // variables
 $Grey50: #ebeef5;
+$Grey100: #c3c8d4;
 $Grey300: #8e95a9;
+$Grey400: #767e94;
 
 body {
 	background: #121829;
 
-	font-family: 'Poppins';
+	font-family: 'Poppins', serif;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 16px;
-	line-height: 24px;
+	line-height: 1.5;
 	letter-spacing: 0.02em;
 	color: $Grey50;
 }
@@ -24,8 +26,11 @@ body {
 #root {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	flex-direction: column;
+	background: url('../images/Background.svg') fixed center no-repeat;
+	background-size: cover;
+	min-height: 100vh;
 }
 .header {
 	display: flex;
@@ -81,7 +86,6 @@ body {
 	&__text {
 		font-weight: 400;
 		font-size: 16px;
-		line-height: 1.5;
 		text-align: center;
 		color: $Grey300;
 
@@ -95,7 +99,7 @@ body {
 
 .movies {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
 	flex-direction: column;
 
@@ -126,5 +130,147 @@ body {
 		column-gap: 24px;
 	}
 	&__item {
+	}
+}
+
+//======================================//
+
+.infoTitle {
+	font-weight: 400;
+	color: $Grey400;
+	margin-bottom: 8px;
+}
+.infoValue {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 1.6;
+	color: $Grey100;
+}
+
+.details {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+
+	&__container {
+		max-width: 1440px;
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		padding: 0 110px;
+		margin-bottom: 160px;
+	}
+	&__content {
+		margin-top: 40px;
+	}
+}
+.content-details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	&__backdrop {
+		position: relative;
+		width: 1200px;
+		height: 480px;
+		border-radius: 40px;
+		overflow: hidden;
+		img {
+			width: 100%;
+			object-fit: cover;
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				180deg,
+				rgba(54, 44, 146, 0.4) 0%,
+				rgba(18, 98, 151, 0.4) 100%
+			);
+		}
+	}
+	&__title-block {
+		display: flex;
+		flex-direction: column;
+		align-self: flex-start;
+		padding: 40px;
+		gap: 8px;
+		width: 560px;
+		margin: -72px 0 0 80px;
+		z-index: 1;
+		background: rgba(32, 40, 62, 0.8);
+		backdrop-filter: blur(12px);
+		border-radius: 24px;
+	}
+	&__title {
+		font-size: 32px;
+		line-height: 1.25;
+		letter-spacing: -0.02em;
+	}
+	&__main-block {
+	}
+}
+.main-block {
+	display: flex;
+	justify-content: space-between;
+	gap: 80px;
+	max-width: 1040px;
+	margin-top: 80px;
+	&__poster {
+		flex: 0 0 46.153%;
+		width: 480px;
+		height: 720px;
+		border-radius: 24px;
+		overflow: hidden;
+		img {
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+	&__info {
+		flex: 0 0 46.153%;
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+	&__tagline {
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 1.33;
+		letter-spacing: -0.015em;
+	}
+	&__text {
+		font-size: 20px;
+		line-height: 1.6;
+		font-weight: 400;
+		color: $Grey300;
+	}
+	&__ratingButton {
+	}
+	&__type {
+	}
+	&__type-title {
+	}
+	&__type-value {
+	}
+	&__release {
+	}
+	&__release-title {
+	}
+	&__release-value {
+	}
+	&__run-time {
+	}
+	&__run-time-title {
+	}
+	&__run-time-value {
+	}
+	&__genres {
+	}
+	&__genres-title {
+	}
+	&__genres-value {
 	}
 }

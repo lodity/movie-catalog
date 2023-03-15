@@ -1,11 +1,27 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
-import { ICard } from '../models/IMovie';
+import { ICard } from '../models/ICard';
 
+interface Genres {
+	id: number;
+	name: string;
+}
 interface IMovies {
 	page: number;
 	results: ICard[];
 	total_pages: number;
 	total_results: number;
+}
+interface IMovie {
+	id: number;
+	poster_path: string;
+	backdrop_path: string;
+	genres: Genres[];
+	title: string;
+	tagline: string;
+	overview: string;
+	vote_average: number;
+	release_date: string;
+	runtime: number;
 }
 
 export const movieAPI = createApi({
@@ -20,6 +36,14 @@ export const movieAPI = createApi({
 				params: {
 					api_key: '918026d985ab80afa1ae6f0b53c6aa70',
 					page: page,
+				},
+			}),
+		}),
+		movie: build.query<IMovie | undefined, number>({
+			query: (id: number) => ({
+				url: `/movie/${id}`,
+				params: {
+					api_key: '918026d985ab80afa1ae6f0b53c6aa70',
 				},
 			}),
 		}),
