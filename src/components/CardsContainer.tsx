@@ -1,14 +1,13 @@
 import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
-import MovieCard from './UI/MovieCard/MovieCard';
+import Card from './UI/Card/Card';
 import { useObserver } from '../hooks/useObserver';
-import { movieAPI } from '../services/MovieService';
 import CardPlaceholder from './UI/CardPlaceholder/CardPlaceholder';
 
 interface Interface {
-	method: any;
+	method: Function;
 }
 
-const MoviesContainer: FC<Interface> = ({ method }) => {
+const CardsContainer: FC<Interface> = ({ method }) => {
 	const placeholder = [];
 	for (let i = 0; i < 20; i++) {
 		placeholder.push(<CardPlaceholder key={i} />);
@@ -16,10 +15,20 @@ const MoviesContainer: FC<Interface> = ({ method }) => {
 	const [cards, setCards]: any = useState([]);
 	const [page, setPage] = useState(1);
 	const [itemsCount, setItemsCount] = useState(0);
+	const [type, setType] = useState('');
 
-	const { data, isLoading, error } = method(1);
-
+	const { data, isLoading, error } = method(page);
 	let round = (a: number, b: number) => a - (a % b);
+
+	useEffect(() => {
+		if (data) {
+			setType(
+				data.results[0].first_air_date == undefined
+					? 'Movie'
+					: 'TV serial'
+			);
+		}
+	}, [isLoading]);
 
 	useMemo(() => {
 		if (data) {
@@ -30,12 +39,12 @@ const MoviesContainer: FC<Interface> = ({ method }) => {
 	const lastElement = useRef<HTMLDivElement | null>(null);
 	useObserver(lastElement, true, isLoading, () => {
 		if (data) {
+			console.log(data);
 			setPage(page + 1);
 			setCards([...cards, ...data.results]);
 		}
 	});
 	console.log(isLoading);
-
 	return (
 		<div>
 			<div className="movies__itemsCounter">{itemsCount}K Items</div>
@@ -43,9 +52,13 @@ const MoviesContainer: FC<Interface> = ({ method }) => {
 				<div className="movies__cards">
 					{cards &&
 						cards
-							.filter((movie: any) => movie.poster_path !== null)
-							.map((movie: any) => (
-								<MovieCard key={movie.id} movie={movie} />
+							.filter(
+								(item: any) =>
+									item.poster_path !== null &&
+									item.backdrop_path !== null
+							)
+							.map((item: any) => (
+								<Card key={item.id} movie={item} type={type} />
 							))}
 					{isLoading && placeholder}
 				</div>
@@ -58,4 +71,4 @@ const MoviesContainer: FC<Interface> = ({ method }) => {
 	);
 };
 
-export default MoviesContainer;
+export default CardsContainer;

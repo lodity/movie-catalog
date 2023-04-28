@@ -7,7 +7,7 @@ interface Interface {
 
 const SearchInput: FC<Interface> = ({ classUi }) => {
 	return (
-		<div className={classes.searchInputContainer + ' ' + classUi}>
+		<div className={`${classes.searchInputContainer} ${classUi}`}>
 			<svg
 				width="24"
 				height="24"
@@ -32,7 +32,7 @@ const SearchInput: FC<Interface> = ({ classUi }) => {
 			</svg>
 			<input
 				type="text"
-				placeholder="Search Movies or TV Shows"
+				placeholder="Search MoviesPage or TV Shows"
 				className={classes.searchInput}
 			/>
 		</div>

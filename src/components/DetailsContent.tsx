@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useParams } from 'react-router';
-import { movieAPI } from '../services/MovieService';
+import { theMovieDBAPI } from '../services/TheMovieDBService';
 import RatingButton from './UI/RatingButton/RatingButton';
 
 const DetailsContent: FC = () => {
@@ -10,7 +10,7 @@ const DetailsContent: FC = () => {
 	movieId.shift();
 	movieId = +movieId.join('');
 
-	const { data, isLoading, error } = movieAPI.useMovieQuery(movieId);
+	const { data, isLoading, error } = theMovieDBAPI.useMovieQuery(movieId);
 	if (data) console.log(data);
 
 	return (

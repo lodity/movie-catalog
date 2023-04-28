@@ -18,25 +18,12 @@
 }
 .movieCardTextBlock {
   padding: 8px;
-  color: #EBEEF5;
+  color: #ebeef5;
 }
-.ratingButton {
-  display: flex;
-  align-items: center;
-  padding: 4px 8px;
-  gap: 4px;
+.movieCardRating {
   position: absolute;
   left: 16px;
   top: 18px;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(4px);
-  border-radius: 8px;
-}
-.ratingButtonRating {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #ffad49;
 }
 
-/*# sourceMappingURL=MovieCard.module.css.map */
+/*# sourceMappingURL=Card.module.css.map */

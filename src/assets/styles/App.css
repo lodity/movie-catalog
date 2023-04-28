@@ -35,6 +35,10 @@ body {
   max-width: 1440px;
   width: 100%;
 }
+.header__searchLogo {
+  display: flex;
+  gap: 16px;
+}
 .header__list {
   display: flex;
   align-items: center;
@@ -48,6 +52,13 @@ body {
   justify-content: center;
   gap: 8px;
   color: #a8aebf;
+}
+
+.headerSearch {
+  width: 400px;
+}
+.headerSearch input {
+  min-width: 100%;
 }
 
 .notFoundPage {
@@ -173,11 +184,12 @@ body {
   padding: 40px;
   gap: 8px;
   width: 560px;
-  margin: -72px 0 0 80px;
+  margin-left: 80px;
   z-index: 1;
   background: rgba(32, 40, 62, 0.8);
   backdrop-filter: blur(12px);
   border-radius: 24px;
+  transform: translate(0, -50%);
 }
 .content-details__title {
   font-size: 32px;
@@ -204,6 +216,11 @@ body {
 }
 .main-block__info {
   flex: 0 0 46.153%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.main-block__infoBlock {
   display: flex;
   flex-direction: column;
   gap: 24px;

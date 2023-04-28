@@ -24,8 +24,8 @@ interface IMovie {
 	runtime: number;
 }
 
-export const movieAPI = createApi({
-	reducerPath: 'movieAPI',
+export const theMovieDBAPI = createApi({
+	reducerPath: 'theMovieDBAPI',
 	baseQuery: fetchBaseQuery({
 		baseUrl: 'https://api.themoviedb.org/3',
 	}),

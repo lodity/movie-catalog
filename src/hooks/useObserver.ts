@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-export const useObserver = (
+export const useObserver = async (
 	ref: any,
 	canLoad: boolean,
 	isLoading: boolean,
@@ -17,6 +17,6 @@ export const useObserver = (
 		}
 	};
 
-	observer.current = new IntersectionObserver(cb);
+	observer.current = await new IntersectionObserver(cb);
 	observer.current.observe(ref.current);
 };

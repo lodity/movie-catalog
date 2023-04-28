@@ -22,7 +22,9 @@ const RatingButton: FC<Interface> = ({ vote_average }) => {
 					strokeLinejoin="round"
 				/>
 			</svg>
-			<div className={classes.ratingButtonRating}>{vote_average}</div>
+			<div className={classes.ratingButtonRating}>
+				{Math.round(vote_average * 100) / 100}
+			</div>
 		</div>
 	);
 };

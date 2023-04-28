@@ -1,5 +1,5 @@
 .ratingButton {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   padding: 4px 8px;
   gap: 4px;
