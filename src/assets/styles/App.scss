@@ -247,6 +247,20 @@ body {
 		flex-direction: column;
 		gap: 24px;
 	}
+	&__left_right {
+		display: flex;
+		gap: 100px;
+	}
+	&__left {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+	&__right {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
 	&__infoBlock {
 		display: flex;
 		flex-direction: column;
@@ -263,31 +277,5 @@ body {
 		line-height: 1.6;
 		font-weight: 400;
 		color: $Grey300;
-	}
-	&__ratingButton {
-	}
-	&__type {
-	}
-	&__type-title {
-	}
-	&__type-value {
-	}
-	&__release {
-	}
-	&__release-title {
-	}
-	&__release-value {
-	}
-	&__run-time {
-	}
-	&__run-time-title {
-	}
-	&__run-time-value {
-	}
-	&__genres {
-	}
-	&__genres-title {
-	}
-	&__genres-value {
 	}
 }

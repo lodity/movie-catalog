@@ -220,6 +220,20 @@ body {
   flex-direction: column;
   gap: 24px;
 }
+.main-block__left_right {
+  display: flex;
+  gap: 100px;
+}
+.main-block__left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.main-block__right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
 .main-block__infoBlock {
   display: flex;
   flex-direction: column;
