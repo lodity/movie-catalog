@@ -1,11 +1,41 @@
-import React, { FC } from 'react';
+import React, { ChangeEvent, FC, useEffect, useMemo, useState } from 'react';
 import classes from './SearchInput.module.css';
+import SearchResults from './SearchResults/SearchResults';
+import { useDebounce } from '../../../hooks/useDebounce';
 
+export type SearchType = 'multi' | 'movie' | 'tv';
 interface Interface {
 	classUi: string;
+	searchType: SearchType;
 }
 
-const SearchInput: FC<Interface> = ({ classUi }) => {
+const SearchInput: FC<Interface> = ({ classUi, searchType }) => {
+	// const [cards, setCards]: any = useState([]);
+	// const [page, setPage] = useState(1);
+	// const [include_adult, setInclude_adult] = useState(false);
+	// const [searchTerm, setSearchTerm] = useState('');
+	// const debouncedSearchTerm = useDebounce(searchTerm, 500);
+	//
+	// const { data, isLoading, error } = theMovieDBAPI.useSearchQuery({
+	// 	searchType,
+	// 	page,
+	// 	searchTerm,
+	// 	include_adult,
+	// });
+	// const [filteredSearchTerm, setFilteredSearchTerm] = useState(searchTerm);
+	//
+	// useEffect(() => {
+	// 	if (searchTerm.length === 0 || searchTerm.length > 4) {
+	// 		setFilteredSearchTerm(searchTerm);
+	// 	}
+	// }, [searchTerm]);
+	//
+	// const results = data?.results ?? [];
+	// console.log(results);
+
+	const [searchTerm, setSearchTerm] = useState('');
+	const debouncedSearchTerm = useDebounce(searchTerm, 500);
+
 	return (
 		<div className={`${classes.searchInputContainer} ${classUi}`}>
 			<svg
@@ -31,9 +61,17 @@ const SearchInput: FC<Interface> = ({ classUi }) => {
 				/>
 			</svg>
 			<input
+				value={searchTerm}
+				onInput={(e: ChangeEvent<HTMLInputElement>) =>
+					setSearchTerm(e.target.value)
+				}
 				type="text"
 				placeholder="Search MoviesPage or TV Shows"
 				className={classes.searchInput}
+			/>
+			<SearchResults
+				searchType={searchType}
+				debouncedSearchTerm={debouncedSearchTerm}
 			/>
 		</div>
 	);

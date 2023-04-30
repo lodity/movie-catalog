@@ -1,5 +1,14 @@
 @font-face {
 	font-family: 'Poppins';
+	src: local('Poppins Thin'), local('Poppins-Thin'),
+		url('/src/assets/fonts/Poppins-Thin.woff2') format('woff2'),
+		url('/src/assets/fonts/Poppins-Thin.woff') format('woff'),
+		url('/src/assets/fonts/Poppins-Thin.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Poppins';
 	src: local('Poppins Regular'), local('Poppins-Regular'),
 		url('/src/assets/fonts/Poppinsregular.woff2') format('woff2'),
 		url('/src/assets/fonts/Poppinsregular.woff') format('woff'),

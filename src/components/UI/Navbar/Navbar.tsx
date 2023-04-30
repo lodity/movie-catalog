@@ -24,7 +24,7 @@ const Navbar = () => {
 						/>
 					</svg>
 				</Link>
-				<SearchInput classUi={'headerSearch'} />
+				<SearchInput classUi="headerSearch" searchType="multi" />
 			</div>
 			<ul className="header__list">
 				<Link className="header__item" to="/movies">
