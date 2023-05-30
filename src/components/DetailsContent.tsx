@@ -9,15 +9,15 @@ const DetailsContent: FC = () => {
 	let id: number | string[] = linkId.id ? linkId.id.split('') : ['1'];
 
 	type.shift();
-	type = type.join('');
+	type = type.join('').toLowerCase();
 	id.shift();
 	id = +id.join('');
 	console.log(type);
 	const { data, isLoading, error } =
-		type === 'Movie'
+		type === 'movie'
 			? theMovieDBAPI.useMovieQuery(id)
 			: theMovieDBAPI.useTvQuery(id);
-	if (data) console.log(data.status);
+	if (data) console.log(data);
 
 	return (
 		<div>
@@ -31,7 +31,7 @@ const DetailsContent: FC = () => {
 					</div>
 					<div className="content-details__title-block">
 						<h1 className="content-details__title">
-							{type === 'Movie' ? data.title : data.name}
+							{type === 'movie' ? data.title : data.name}
 						</h1>
 					</div>
 					<div className="content-details__main-block main-block">
@@ -61,17 +61,18 @@ const DetailsContent: FC = () => {
 												Type
 											</p>
 											<p className="main-block__type-value infoValue">
-												{type}
+												{type.charAt(0).toUpperCase() +
+													type.slice(1)}
 											</p>
 										</div>
 										<div className="main-block__release">
 											<p className="main-block__release-title infoTitle">
-												{type === 'Movie'
+												{type === 'movie'
 													? 'Release Date'
 													: 'First air date'}
 											</p>
 											<p className="main-block__release-value infoValue">
-												{type === 'Movie'
+												{type === 'movie'
 													? data.release_date
 													: data.first_air_date}
 											</p>
@@ -88,12 +89,12 @@ const DetailsContent: FC = () => {
 										)}
 										<div className="main-block__run-time">
 											<p className="main-block__run-time-title infoTitle">
-												{type === 'Movie'
+												{type === 'movie'
 													? 'Run time'
 													: 'Episode run time'}
 											</p>
 											<p className="main-block__run-time-value infoValue">
-												{type === 'Movie'
+												{type === 'movie'
 													? data.runtime
 													: data.episode_run_time}{' '}
 												min
