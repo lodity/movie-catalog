@@ -8,6 +8,7 @@ interface IGenres {
 export interface ISearchResults {
 	poster_path: string;
 	backdrop_path: string;
+	profile_path: string;
 	adult: boolean;
 	overview: string;
 	id: number;
@@ -15,7 +16,7 @@ export interface ISearchResults {
 	title: string;
 	name: string;
 }
-interface ISearchResponse {
+export interface ISearchResponse {
 	page: number;
 	results: ISearchResults[];
 	total_pages: number;

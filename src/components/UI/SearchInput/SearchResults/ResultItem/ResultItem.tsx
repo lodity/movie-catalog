@@ -7,7 +7,8 @@ interface Interface {
 	item: ISearchResults;
 }
 const ResultItem: FC<Interface> = ({ item }) => {
-	const itemTitle = item.media_type === 'movie' ? item.title : item.name;
+	const itemTitle =
+		item.media_type.toLowerCase() === 'movie' ? item.title : item.name;
 	return (
 		<Link
 			to={`/:${item.media_type}/:${item.id}`}
@@ -15,12 +16,15 @@ const ResultItem: FC<Interface> = ({ item }) => {
 		>
 			<img
 				className={classes.ResultItemImage}
-				src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}
+				src={`https://image.tmdb.org/t/p/w200${
+					item.poster_path ? item.poster_path : item.profile_path
+				}`}
 				alt={itemTitle}
 			/>
+
 			<div className={classes.ResultItemTextBlock}>
 				<h2>{itemTitle}</h2>
-				<p>{item.overview}</p>
+				{!item.profile_path && <p>{item.overview}</p>}
 			</div>
 		</Link>
 	);
