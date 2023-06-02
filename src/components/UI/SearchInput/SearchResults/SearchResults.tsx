@@ -1,12 +1,10 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
-import {
-	ISearchResults,
-	theMovieDBAPI,
-} from '../../../../services/TheMovieDBService';
+import { theMovieDBAPI } from '../../../../services/TheMovieDBService';
 import { SearchType } from '../SearchInput';
 import classes from './SearchResults.module.css';
 import ResultItem from './ResultItem/ResultItem';
 import { useObserver } from '../../../../hooks/useObserver';
+import { ISearchResults } from '../../../../models/ISearchResults';
 interface Interface {
 	searchType: SearchType;
 	debouncedSearchTerm: string;

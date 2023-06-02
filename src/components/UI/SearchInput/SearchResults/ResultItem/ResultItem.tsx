@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import classes from './ResultItem.module.css';
-import { ISearchResults } from '../../../../../services/TheMovieDBService';
 import { Link } from 'react-router-dom';
+import { ISearchResults } from '../../../../../models/ISearchResults';
 
 interface Interface {
 	item: ISearchResults;

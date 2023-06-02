@@ -1,19 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { SearchType } from '../components/UI/SearchInput/SearchInput';
+import { ISearchResults } from '../models/ISearchResults';
 
 interface IGenres {
 	id: number;
-	name: string;
-}
-export interface ISearchResults {
-	poster_path: string;
-	backdrop_path: string;
-	profile_path: string;
-	adult: boolean;
-	overview: string;
-	id: number;
-	media_type: 'movie' | 'tv' | 'person';
-	title: string;
 	name: string;
 }
 export interface ISearchResponse {
