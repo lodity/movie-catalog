@@ -2,6 +2,8 @@ import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 import Card from './UI/Card/Card';
 import { useObserver } from '../hooks/useObserver';
 import CardPlaceholder from './UI/CardPlaceholder/CardPlaceholder';
+import { ICard } from '../models/ICard';
+import { log } from 'util';
 
 interface Interface {
 	method: Function;
@@ -12,7 +14,7 @@ const CardsContainer: FC<Interface> = ({ method }) => {
 	for (let i = 0; i < 20; i++) {
 		placeholder.push(<CardPlaceholder key={i} />);
 	}
-	const [cards, setCards]: any = useState([]);
+	const [cards, setCards] = useState<ICard[]>([]);
 	const [page, setPage] = useState(1);
 	const [itemsCount, setItemsCount] = useState(0);
 	const [type, setType] = useState('');
@@ -41,7 +43,12 @@ const CardsContainer: FC<Interface> = ({ method }) => {
 		if (data) {
 			console.log(data);
 			setPage(page + 1);
-			setCards([...cards, ...data.results]);
+			const table: { [index: string]: any } = {};
+			setCards(
+				[...cards, ...data.results].filter(
+					({ id }) => !table[id] && (table[id] = 1)
+				)
+			);
 		}
 	});
 	console.log(isLoading);

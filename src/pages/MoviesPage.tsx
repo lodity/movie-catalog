@@ -8,7 +8,7 @@ const MoviesPage = () => {
 		<div className="movies">
 			<div className="movies__container">
 				<h1 className="movies__title title">Movies</h1>
-				<SearchInput classUi="movies__input" searchType="movie" />
+				{/*<SearchInput classUi="movies__input" searchType="movie" />*/}
 				<CardsContainer method={theMovieDBAPI.usePopularMoviesQuery} />
 			</div>
 		</div>
