@@ -1,0 +1,33 @@
+.signInPage {
+	&__wrapper {
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 15px;
+		backdrop-filter: saturate(140%);
+		height: 450px;
+		width: 450px;
+		border-radius: 25px;
+		border: #7b6ef6 solid 2px;
+		input {
+			width: 55%;
+			height: 10%;
+			padding: 12px;
+			border-radius: 8px;
+			background-color: rgba(0, 0, 0, 0);
+			border: #7b6ef6 solid 1px;
+			color: #afa8e5;
+		}
+	}
+	&__title {
+		font-size: 36px;
+	}
+	&__username {
+	}
+	&__email {
+	}
+	&__password {
+	}
+}
