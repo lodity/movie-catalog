@@ -2,7 +2,7 @@ import NotFoundPage from '../pages/NotFoundPage';
 import HomePage from '../pages/HomePage';
 import MoviesPage from '../pages/MoviesPage';
 import DetailsPage from '../pages/DetailsPage';
-import SignInPage from '../pages/SignInPage';
+import SignInPage from '../pages/SignInPage/SignInPage';
 
 interface Route {
 	path: string;

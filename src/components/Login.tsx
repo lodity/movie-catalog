@@ -3,7 +3,7 @@ import BaseButton from './UI/BaseButton/BaseButton';
 
 const Login = () => {
 	return (
-		<div className="signInPage__wrapper">
+		<form className="signInPage__wrapper">
 			<h1 className="signInPage__title">Login</h1>
 			<input
 				type="text"
@@ -15,8 +15,10 @@ const Login = () => {
 				className="signInPage__password"
 				placeholder="Password"
 			/>
-			<BaseButton>Login</BaseButton>
-		</div>
+			<BaseButton type="submit" onClick={(e) => e.preventDefault()}>
+				Login
+			</BaseButton>
+		</form>
 	);
 };
 

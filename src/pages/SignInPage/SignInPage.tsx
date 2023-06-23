@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import Login from '../components/Login';
-import Registration from '../components/Registration';
+import Login from '../../components/Login';
+import Registration from '../../components/Registration';
 
 type SignInOption = 'login' | 'registration';
 
