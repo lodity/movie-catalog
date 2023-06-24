@@ -7,13 +7,6 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.62",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "@types/react-redux": "^7.1.24",
-    "@types/react-router": "^5.1.19",
-    "@types/react-router-dom": "^5.3.3",
     "axios": "^0.27.2",
     "css-loader": "^6.7.1",
     "react": "^18.2.0",
@@ -57,5 +50,15 @@
     "semi": true,
     "singleQuote": true,
     "printWidth": 80
+  },
+  "devDependencies": {
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.11.62",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-redux": "^7.1.24",
+    "@types/react-router": "^5.1.19",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/axios": "^0.14.0"
   }
 }
