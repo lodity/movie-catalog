@@ -1,10 +1,10 @@
 import { combineReducers, configureStore, createStore } from '@reduxjs/toolkit';
 import { theMovieDBAPI } from '../services/TheMovieDBService';
-import { testReducer } from './reducers/testReducer';
+import { authReducer } from './reducers/authReducer';
 
 const rootReducer = combineReducers({
 	[theMovieDBAPI.reducerPath]: theMovieDBAPI.reducer,
-	test: testReducer,
+	auth: authReducer,
 });
 
 export const setupStore = () => {
