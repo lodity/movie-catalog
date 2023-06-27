@@ -9,12 +9,14 @@ const Login: FC = () => {
 	const { login } = useActions();
 
 	return (
-		<form className="signInPage__wrapper">
+		<form name="login" className="signInPage__wrapper">
 			<h1 className="signInPage__title">Login</h1>
 			<input
 				onChange={(e) => setUsernameOrEmail(e.target.value)}
 				value={usernameOrEmail}
 				type="text"
+				name="username"
+				autoComplete="username"
 				className="signInPage__username"
 				placeholder="Username or email"
 			/>
@@ -22,6 +24,8 @@ const Login: FC = () => {
 				onChange={(e) => setPassword(e.target.value)}
 				value={password}
 				type="password"
+				name="password"
+				autoComplete="current-password"
 				className="signInPage__password"
 				placeholder="Password"
 			/>

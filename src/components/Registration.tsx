@@ -9,12 +9,18 @@ const Registration = () => {
 	const { registration } = useActions();
 
 	return (
-		<form className="signInPage__wrapper">
+		<form
+			name="registration"
+			autoComplete="off"
+			className="signInPage__wrapper"
+		>
 			<h1 className="signInPage__title">Registration</h1>
 			<input
 				onChange={(e) => setUsername(e.target.value)}
 				value={username}
 				type="text"
+				name="username"
+				autoComplete="username"
 				className="signInPage__username"
 				placeholder="Username"
 			/>
@@ -22,13 +28,17 @@ const Registration = () => {
 				onChange={(e) => setEmail(e.target.value)}
 				value={email}
 				type="email"
+				name="email"
+				autoComplete="email"
 				className="signInPage__email"
 				placeholder="Email"
 			/>
 			<input
 				onChange={(e) => setPassword(e.target.value)}
 				value={password}
+				autoComplete="new-password"
 				type="password"
+				name="password"
 				className="signInPage__password"
 				placeholder="Password"
 			/>
