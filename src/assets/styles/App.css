@@ -68,7 +68,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: 48px;
+  column-gap: 32px;
   row-gap: 16px;
 }
 .header__item {
@@ -76,7 +76,17 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
+}
+.header__item a,
+.header__item button {
   color: #a8aebf;
+  background-color: transparent;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .headerSearch {

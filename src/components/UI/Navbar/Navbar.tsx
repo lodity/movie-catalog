@@ -1,8 +1,63 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchInput from '../SearchInput/SearchInput';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { useActions } from '../../../hooks/useActions';
 
 const Navbar = () => {
+	const { isAuthenticated } = useTypedSelector((state) => state.auth);
+	const { logout } = useActions();
+
+	let authLinks;
+	if (!isAuthenticated) {
+		authLinks = (
+			<li className="header__item">
+				<Link to="/login">Login</Link>
+				<Link to="/registration">Register</Link>
+			</li>
+		);
+	} else {
+		authLinks = (
+			<li className="header__item">
+				<button type="button" onClick={logout}>
+					<svg
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M17.4404 14.62L20.0004 12.06L17.4404 9.5"
+							stroke="#767E94"
+							strokeWidth="1.5"
+							strokeMiterlimit="10"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						/>
+						<path
+							d="M9.75977 12.0601H19.9298"
+							stroke="#767E94"
+							strokeWidth="1.5"
+							strokeMiterlimit="10"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						/>
+						<path
+							d="M11.7598 20C7.33977 20 3.75977 17 3.75977 12C3.75977 7 7.33977 4 11.7598 4"
+							stroke="#767E94"
+							strokeWidth="1.5"
+							strokeMiterlimit="10"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						/>
+					</svg>
+					<span>Logout</span>
+				</button>
+			</li>
+		);
+	}
+
 	return (
 		<header className="header">
 			<div className="header__searchLogo">
@@ -27,12 +82,17 @@ const Navbar = () => {
 				<SearchInput classUi="headerSearch" searchType="multi" />
 			</div>
 			<ul className="header__list">
-				<Link className="header__item" to="/movies">
-					<div>Movies</div>
-				</Link>
-				<Link className="header__item" to="/TVshows">
-					<div>TV Shows</div>
-				</Link>
+				<li className="header__item">
+					<Link to="/movies">
+						<div>Movies</div>
+					</Link>
+				</li>
+				<li className="header__item">
+					<Link to="/TVshows">
+						<div>TV Shows</div>
+					</Link>
+				</li>
+				{authLinks}
 			</ul>
 		</header>
 	);
