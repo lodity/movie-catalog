@@ -71,6 +71,10 @@ export const logout = () => {
 
 export const checkAuth = () => {
 	return async (dispatch: Dispatch<AuthAction>) => {
+		dispatch({
+			type: AuthActionTypes.setIsLoading,
+			payload: true,
+		});
 		try {
 			const response = await axios.get<AuthResponse>(
 				`${API_URL}/refresh`,
@@ -88,6 +92,11 @@ export const checkAuth = () => {
 			});
 		} catch (e: any) {
 			console.log(e.response?.data?.message);
+		} finally {
+			dispatch({
+				type: AuthActionTypes.setIsLoading,
+				payload: false,
+			});
 		}
 	};
 };
