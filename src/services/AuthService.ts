@@ -21,7 +21,7 @@ export default class AuthService {
 		});
 	}
 
-	static logout(): Promise<void> {
+	static logout(): Promise<AxiosResponse> {
 		return $api.post('/logout');
 	}
 }

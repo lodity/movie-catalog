@@ -29,8 +29,8 @@ export type AuthAction =
 	| SetUserAction;
 
 const initialState: IAuthState = {
-	user: {} as IUser,
-	isAuthenticated: false,
+	user: JSON.parse(localStorage.getItem('user') || '{}') as IUser,
+	isAuthenticated: localStorage.getItem('isAuthenticated') === 'true',
 	isLoading: false,
 };
 
