@@ -1,9 +1,15 @@
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import BaseButton from '../components/UI/BaseButton/BaseButton';
+import UserService from '../services/UserService';
 
 const HomePage = () => {
 	const { isAuthenticated, isLoading, user } = useTypedSelector(
 		(state) => state.auth
 	);
+
+	async function getUsers() {
+		console.log(await UserService.fetchUsers());
+	}
 
 	let authInformation;
 	if (isLoading) {
@@ -33,6 +39,7 @@ const HomePage = () => {
 	return (
 		<>
 			<h1>Hello</h1>
+			<BaseButton onClick={getUsers}>getUsers</BaseButton>
 			{authInformation}
 		</>
 	);
