@@ -16,7 +16,16 @@ const HomePage = () => {
 						? 'You are authenticated'
 						: 'You are not authenticated'}
 				</p>
-				{isAuthenticated && <p>Welcome back {user.username}!</p>}
+				{isAuthenticated && (
+					<>
+						<p>Welcome back {user.username}!</p>
+						<p>
+							{user.isActivated
+								? 'Account is activated'
+								: 'Activation link has been sent to your email'}
+						</p>
+					</>
+				)}
 			</>
 		);
 	}
