@@ -1,6 +1,5 @@
 import { FC, useState } from 'react';
 import BaseButton from './UI/BaseButton/BaseButton';
-import { login } from '../store/actions/authAction';
 import { useActions } from '../hooks/useActions';
 
 const Login: FC = () => {
