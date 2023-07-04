@@ -88,6 +88,10 @@ body {
   align-items: center;
   gap: 0.25rem;
 }
+.header__item a.active,
+.header__item button.active {
+  text-decoration: underline;
+}
 
 .headerSearch {
   width: 400px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import SearchInput from '../SearchInput/SearchInput';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { useActions } from '../../../hooks/useActions';
@@ -12,8 +12,8 @@ const Navbar = () => {
 	if (!isAuthenticated) {
 		authLinks = (
 			<li className="header__item">
-				<Link to="/login">Login</Link>
-				<Link to="/registration">Register</Link>
+				<NavLink to="/login">Login</NavLink>
+				<NavLink to="/registration">Register</NavLink>
 			</li>
 		);
 	} else {
@@ -61,7 +61,7 @@ const Navbar = () => {
 	return (
 		<header className="header">
 			<div className="header__searchLogo">
-				<Link to="/">
+				<NavLink to="/">
 					<svg
 						width="40"
 						height="40"
@@ -78,19 +78,19 @@ const Navbar = () => {
 							fill="#7B6EF6"
 						/>
 					</svg>
-				</Link>
+				</NavLink>
 				<SearchInput classUi="headerSearch" searchType="multi" />
 			</div>
 			<ul className="header__list">
 				<li className="header__item">
-					<Link to="/movies">
+					<NavLink to="/movies">
 						<div>Movies</div>
-					</Link>
+					</NavLink>
 				</li>
 				<li className="header__item">
-					<Link to="/TVshows">
+					<NavLink to="/TVshows">
 						<div>TV Shows</div>
-					</Link>
+					</NavLink>
 				</li>
 				{authLinks}
 			</ul>
