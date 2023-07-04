@@ -4,6 +4,7 @@ import MoviesPage from '../pages/MoviesPage';
 import DetailsPage from '../pages/DetailsPage';
 import SignInPage from '../pages/SignInPage/SignInPage';
 import { Navigate } from 'react-router-dom';
+import AccountPage from '../pages/AccountPage/AccountPage';
 
 interface Route {
 	path: string;
@@ -12,6 +13,7 @@ interface Route {
 
 export const privateRoutes: Route[] = [
 	{ path: '/', element: <HomePage /> },
+	{ path: '/account', element: <AccountPage /> },
 	{ path: '/login', element: <Navigate to="/" /> },
 	{
 		path: '/registration',
