@@ -11,7 +11,7 @@ const ResultItem: FC<Interface> = ({ item }) => {
 		item.media_type.toLowerCase() === 'movie' ? item.title : item.name;
 	return (
 		<Link
-			to={`/:${item.media_type}/:${item.id}`}
+			to={`/${item.media_type}/${item.id}`}
 			className={classes.ResultItemContainer}
 		>
 			<img

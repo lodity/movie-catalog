@@ -5,15 +5,9 @@ import RatingButton from './UI/RatingButton/RatingButton';
 
 const DetailsContent: FC = () => {
 	const linkId = useParams();
-	let type: string | string[] = linkId.type ? linkId.type.split('') : [''];
-	let id: number | string[] = linkId.id ? linkId.id.split('') : ['1'];
-
-	type.shift();
-	type = type.join('').toLowerCase();
-	id.shift();
-	id = +id.join('');
-	console.log(type);
-	const { data, isLoading, error } =
+	let type: string = linkId.type ? linkId.type : '';
+	let id: number = linkId.id ? parseInt(linkId.id) : 0;
+	const { data } =
 		type === 'movie'
 			? theMovieDBAPI.useMovieQuery(id)
 			: theMovieDBAPI.useTvQuery(id);
@@ -141,7 +135,7 @@ const DetailsContent: FC = () => {
 												{object.name}
 												{data.genres[
 													data.genres.length - 1
-												] != object
+												] !== object
 													? ', '
 													: ''}
 											</span>

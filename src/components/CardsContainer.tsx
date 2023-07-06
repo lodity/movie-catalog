@@ -3,7 +3,6 @@ import Card from './UI/Card/Card';
 import { useObserver } from '../hooks/useObserver';
 import CardPlaceholder from './UI/CardPlaceholder/CardPlaceholder';
 import { ICard } from '../models/ICard';
-import { log } from 'util';
 
 interface Interface {
 	method: Function;
@@ -19,27 +18,27 @@ const CardsContainer: FC<Interface> = ({ method }) => {
 	const [itemsCount, setItemsCount] = useState(0);
 	const [type, setType] = useState('');
 
-	const { data, isLoading, error } = method(page);
+	const { data, isFetching } = method(page);
 	let round = (a: number, b: number) => a - (a % b);
 
 	useEffect(() => {
 		if (data) {
 			setType(
-				data.results[0].first_air_date == undefined
-					? 'Movie'
+				data.results[0].first_air_date === undefined
+					? 'movie'
 					: 'TV serial'
 			);
 		}
-	}, [isLoading]);
+	}, [data]);
 
 	useMemo(() => {
 		if (data) {
 			setItemsCount(round(data.total_results, 100) / 1000);
 		}
-	}, [data && data.total_results]);
+	}, [data]);
 
 	const lastElement = useRef<HTMLDivElement | null>(null);
-	useObserver(lastElement, true, isLoading, () => {
+	useObserver(lastElement, true, isFetching, () => {
 		if (data) {
 			console.log(data);
 			setPage(page + 1);
@@ -51,7 +50,6 @@ const CardsContainer: FC<Interface> = ({ method }) => {
 			);
 		}
 	});
-	console.log(isLoading);
 	return (
 		<div>
 			<div className="movies__itemsCounter">{itemsCount}K Items</div>
@@ -67,7 +65,7 @@ const CardsContainer: FC<Interface> = ({ method }) => {
 							.map((item: any) => (
 								<Card key={item.id} movie={item} type={type} />
 							))}
-					{isLoading && placeholder}
+					{isFetching && placeholder}
 				</div>
 				<div
 					ref={lastElement}

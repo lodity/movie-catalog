@@ -61,6 +61,8 @@ const SearchInput: FC<Interface> = ({ classUi, searchType }) => {
 			{!pageChanged && searchTerm !== '' && (
 				<SearchResults
 					searchType={searchType}
+					include_adult={false}
+					originalSearchTerm={searchTerm}
 					debouncedSearchTerm={debouncedSearchTerm}
 				/>
 			)}

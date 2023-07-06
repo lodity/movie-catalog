@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { ICard } from '../../../models/ICard';
 import classes from './Card.module.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import RatingButton from '../RatingButton/RatingButton';
 
 interface Interface {
@@ -10,9 +10,8 @@ interface Interface {
 }
 
 const Card: FC<Interface> = ({ movie, type }) => {
-	const router = useNavigate();
 	return (
-		<Link to={`/:${type}/:${movie.id}`} className={classes.movieCard}>
+		<Link to={`/${type}/${movie.id}`} className={classes.movieCard}>
 			<div className={classes.movieCardRating}>
 				<RatingButton vote_average={movie.vote_average} />
 			</div>
