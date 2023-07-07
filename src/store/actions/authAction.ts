@@ -2,18 +2,17 @@ import { AuthAction, AuthActionTypes } from '../reducers/authReducer';
 import { Dispatch } from '@reduxjs/toolkit';
 import AuthService from '../../services/AuthService';
 import IUser from '../../models/IUser';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import AuthResponse from '../../models/AuthResponse';
 import { API_URL } from '../../http';
-import { AxiosResponse } from 'axios';
 
 function setAuthData(
 	dispatch: Dispatch<AuthAction>,
-	response: AxiosResponse<AuthResponse>,
+	response: AxiosResponse<AuthResponse> | null,
 	setIsAuthenticated: boolean,
 	setUser: IUser
 ) {
-	if (response.data.accessToken) {
+	if (response && response.data.accessToken) {
 		localStorage.setItem('token', response.data.accessToken);
 	} else {
 		localStorage.removeItem('token');
@@ -94,14 +93,12 @@ export const checkAuth = () => {
 			payload: true,
 		});
 		try {
-			const response = await axios.get<AuthResponse>(
-				`${API_URL}/refresh`,
-				{ withCredentials: true }
-			);
-			console.log(response);
-			setAuthData(dispatch, response, true, response.data.user);
+			await axios.get(`${API_URL}/checkAuth`, {
+				withCredentials: true,
+			});
 		} catch (e: any) {
 			console.log(e.response?.data?.message);
+			setAuthData(dispatch, null, false, {} as IUser);
 		} finally {
 			dispatch({
 				type: AuthActionTypes.setIsLoading,
