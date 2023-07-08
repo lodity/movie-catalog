@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import FavoriteService from '../../services/FavoriteService';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { IFavoriteItem } from '../../models/IFavorites';
+import { useActions } from '../../hooks/useActions';
 
 const AccountPage = () => {
+	const { getFavorites } = useActions();
 	const { user } = useTypedSelector((state) => state.auth);
+	const { favorites: favoritesState } = useTypedSelector(
+		(state) => state.favorite
+	);
 	const [favorites, setFavorites] = useState<IFavoriteItem[]>([]);
 
 	useEffect(() => {
-		getFavorites();
+		getFavorites(user.id);
 	}, []);
-	async function getFavorites() {
-		const response = await FavoriteService.fetchFavorites(
-			user.id.toString()
-		);
-		setFavorites(response.data);
-	}
+	useEffect(() => {
+		setFavorites(favoritesState);
+	}, [favoritesState]);
 	return (
 		<ul>
 			{favorites.map((item) => (

@@ -3,6 +3,8 @@ import { ICard } from '../../../models/ICard';
 import classes from './Card.module.css';
 import { Link } from 'react-router-dom';
 import RatingButton from '../RatingButton/RatingButton';
+import { useActions } from '../../../hooks/useActions';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
 
 interface Interface {
 	movie: ICard;
@@ -10,7 +12,10 @@ interface Interface {
 }
 
 const Card: FC<Interface> = ({ movie, type }) => {
-	console.log(classes);
+	const { addFavorites } = useActions();
+	const { user } = useTypedSelector((state) => state.auth);
+	const { favorites } = useTypedSelector((state) => state.favorite);
+
 	return (
 		<div className={classes.container}>
 			<Link to={`/${type}/${movie.id}`} className={classes.movieCard}>
@@ -26,7 +31,17 @@ const Card: FC<Interface> = ({ movie, type }) => {
 					<div className={classes.title}>{movie.title}</div>
 				</div>
 			</Link>
-			<button className={classes.favorite} />
+			<button
+				//TODO: removeFavorite
+				onClick={() =>
+					addFavorites(user.id, [{ ...movie, media_type: type }])
+				}
+				className={
+					!favorites.filter((item) => item.id === movie.id).length
+						? classes.favorite
+						: classes.favoriteActive
+				}
+			/>
 		</div>
 	);
 };
