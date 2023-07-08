@@ -1,5 +1,6 @@
 export interface ICard {
 	title: string;
+	original_title: string;
 	id: number;
 	vote_average: number;
 	overview: string;

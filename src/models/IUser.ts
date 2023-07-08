@@ -1,6 +1,6 @@
 export default interface IUser {
 	username: string;
 	email: string;
-	id: object;
+	id: string;
 	isActivated: boolean;
 }

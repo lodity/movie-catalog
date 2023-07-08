@@ -9,5 +9,5 @@ export interface IFavoriteItem {
 }
 export interface IFavorites {
 	userId: string;
-	favorite: IFavoriteItem[];
+	favorites: IFavoriteItem[];
 }
