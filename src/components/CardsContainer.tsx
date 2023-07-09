@@ -54,7 +54,7 @@ const CardsContainer: FC<Interface> = ({ method }) => {
 		<div>
 			<div className="movies__itemsCounter">{itemsCount}K Items</div>
 			<div className="movies__area">
-				<div className="movies__cards">
+				<ul className="movies__cards">
 					{cards &&
 						cards
 							.filter(
@@ -66,7 +66,7 @@ const CardsContainer: FC<Interface> = ({ method }) => {
 								<Card key={item.id} movie={item} type={type} />
 							))}
 					{isFetching && placeholder}
-				</div>
+				</ul>
 				<div
 					ref={lastElement}
 					style={{ height: 20, background: 'red' }}

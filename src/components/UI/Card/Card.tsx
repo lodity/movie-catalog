@@ -1,23 +1,25 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 import { ICard } from '../../../models/ICard';
 import classes from './Card.module.css';
 import { Link } from 'react-router-dom';
 import RatingButton from '../RatingButton/RatingButton';
 import { useActions } from '../../../hooks/useActions';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { IFavoriteItem } from '../../../models/IFavorites';
 
 interface Interface {
-	movie: ICard;
+	movie: ICard | IFavoriteItem;
 	type: string;
 }
 
 const Card: FC<Interface> = ({ movie, type }) => {
-	const { addFavorites } = useActions();
+	const { addFavorites, removeFavoriteById } = useActions();
 	const { user } = useTypedSelector((state) => state.auth);
 	const { favorites } = useTypedSelector((state) => state.favorite);
+	const refFavoriteButton = useRef<HTMLButtonElement>(null);
 
 	return (
-		<div className={classes.container}>
+		<li className={classes.container}>
 			<Link to={`/${type}/${movie.id}`} className={classes.movieCard}>
 				<div className={classes.rating}>
 					<RatingButton vote_average={movie.vote_average} />
@@ -32,17 +34,22 @@ const Card: FC<Interface> = ({ movie, type }) => {
 				</div>
 			</Link>
 			<button
-				//TODO: removeFavorite
-				onClick={() =>
-					addFavorites(user.id, [{ ...movie, media_type: type }])
-				}
-				className={
-					!favorites.filter((item) => item.id === movie.id).length
-						? classes.favorite
-						: classes.favoriteActive
-				}
+				onClick={() => {
+					!refFavoriteButton?.current?.classList.contains(
+						classes.favoriteActive
+					)
+						? addFavorites(user.id, [
+								{ ...movie, media_type: type },
+						  ])
+						: removeFavoriteById(user.id, movie.id);
+				}}
+				ref={refFavoriteButton}
+				className={`${classes.favorite} ${
+					favorites.filter((item) => item.id === movie.id).length &&
+					classes.favoriteActive
+				}`}
 			/>
-		</div>
+		</li>
 	);
 };
 

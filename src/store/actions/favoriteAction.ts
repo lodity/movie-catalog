@@ -37,3 +37,40 @@ export const addFavorites = (userId: string, favorites: IFavoriteItem[]) => {
 		}
 	};
 };
+export const removeFavoriteById = (userId: string, favoriteId: number) => {
+	return async (dispatch: Dispatch<FavoriteAction>) => {
+		try {
+			const response = await FavoriteService.removeFavorite(
+				userId,
+				favoriteId
+			);
+			console.log(response);
+			dispatch({
+				type: FavoriteActionTypes.removeFavoriteById,
+				payload: favoriteId,
+			});
+		} catch (e: any) {
+			console.log(e.response?.data?.message);
+		}
+	};
+};
+// export const clearFavorites = (locally: boolean) => {
+// 	return async (dispatch: Dispatch<FavoriteAction>) => {
+// 		try {
+// 			if(!locally){
+// 				const response = await FavoriteService.removeFavorite(
+// 					userId,
+// 					favoriteId
+// 				);
+// 			}
+//
+// 			console.log(response);
+// 			dispatch({
+// 				type: FavoriteActionTypes.removeFavoriteById,
+// 				payload: favoriteId,
+// 			});
+// 		} catch (e: any) {
+// 			console.log(e.response?.data?.message);
+// 		}
+// 	};
+// };

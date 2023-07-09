@@ -49,6 +49,6 @@
 	background-size: contain;
 }
 .favoriteActive {
-	composes: favorite;
+	//composes: favorite;
 	background-image: url('/src/assets/images/ratingStarFilled.svg');
 }

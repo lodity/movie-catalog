@@ -3,7 +3,8 @@ import { IFavoriteItem } from '../../models/IFavorites';
 export enum FavoriteActionTypes {
 	getFavorites = 'getFavorites',
 	addFavorites = 'addFavorites',
-	removeFavorites = 'removeFavorites',
+	removeFavoriteById = 'removeFavoriteById',
+	// clearFavorites = 'clearFavorites',
 }
 interface GetFavorite {
 	type: FavoriteActionTypes.getFavorites;
@@ -13,11 +14,15 @@ interface AddFavorite {
 	type: FavoriteActionTypes.addFavorites;
 	payload: IFavoriteItem[];
 }
-interface RemoveFavorites {
-	type: FavoriteActionTypes.removeFavorites;
+interface RemoveFavoriteById {
+	type: FavoriteActionTypes.removeFavoriteById;
 	payload: number;
 }
-export type FavoriteAction = GetFavorite | AddFavorite | RemoveFavorites;
+// interface ClearFavorites {
+// 	type: FavoriteActionTypes.clearFavorites;
+// }
+export type FavoriteAction = GetFavorite | AddFavorite | RemoveFavoriteById;
+// | ClearFavorites;
 
 interface IFavoriteState {
 	favorites: IFavoriteItem[];
@@ -39,15 +44,20 @@ export const favoriteReducer = (
 		case FavoriteActionTypes.addFavorites:
 			return {
 				...state,
-				favorites: [...state.favorites, ...action.payload],
+				favorites: action.payload,
 			};
-		case FavoriteActionTypes.removeFavorites:
+		case FavoriteActionTypes.removeFavoriteById:
 			return {
 				...state,
 				favorites: state.favorites.filter(
 					(favorite) => favorite.id !== action.payload
 				),
 			};
+		// case FavoriteActionTypes.clearFavorites:
+		// 	return {
+		// 		...state,
+		// 		favorites: [],
+		// 	};
 		default:
 			return state;
 	}
