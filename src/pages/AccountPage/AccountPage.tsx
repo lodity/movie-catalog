@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { IFavoriteItem } from '../../models/IFavorites';
 import { useActions } from '../../hooks/useActions';
+import Card from '../../components/UI/Card/Card';
 
 const AccountPage = () => {
 	const { getFavorites } = useActions();
@@ -18,11 +19,18 @@ const AccountPage = () => {
 		setFavorites(favoritesState);
 	}, [favoritesState]);
 	return (
-		<ul>
+		<ul
+			style={{
+				margin: '0 auto',
+				width: '85%',
+				display: 'flex',
+				flexWrap: 'wrap',
+				gap: '15px',
+				justifyContent: 'center',
+			}}
+		>
 			{favorites.map((item) => (
-				<li key={item.id}>
-					{item.id}. <p>{item.title}</p>
-				</li>
+				<Card type={item.media_type} movie={item} key={item.id} />
 			))}
 		</ul>
 	);
