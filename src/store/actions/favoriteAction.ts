@@ -40,7 +40,7 @@ export const addFavorites = (userId: string, favorites: IFavoriteItem[]) => {
 export const removeFavoriteById = (userId: string, favoriteId: number) => {
 	return async (dispatch: Dispatch<FavoriteAction>) => {
 		try {
-			const response = await FavoriteService.removeFavorite(
+			const response = await FavoriteService.removeFavoriteById(
 				userId,
 				favoriteId
 			);
@@ -54,23 +54,18 @@ export const removeFavoriteById = (userId: string, favoriteId: number) => {
 		}
 	};
 };
-// export const clearFavorites = (locally: boolean) => {
-// 	return async (dispatch: Dispatch<FavoriteAction>) => {
-// 		try {
-// 			if(!locally){
-// 				const response = await FavoriteService.removeFavorite(
-// 					userId,
-// 					favoriteId
-// 				);
-// 			}
-//
-// 			console.log(response);
-// 			dispatch({
-// 				type: FavoriteActionTypes.removeFavoriteById,
-// 				payload: favoriteId,
-// 			});
-// 		} catch (e: any) {
-// 			console.log(e.response?.data?.message);
-// 		}
-// 	};
-// };
+export const clearFavorites = (userId: string, locally: boolean) => {
+	return async (dispatch: Dispatch<FavoriteAction>) => {
+		try {
+			if (!locally) {
+				const response = await FavoriteService.clearFavorites(userId);
+				console.log(response);
+			}
+			dispatch({
+				type: FavoriteActionTypes.clearFavorites,
+			});
+		} catch (e: any) {
+			console.log(e.response?.data?.message);
+		}
+	};
+};

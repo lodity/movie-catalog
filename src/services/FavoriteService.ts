@@ -6,24 +6,38 @@ export default class FavoriteService {
 	static fetchFavorites(
 		userId: string
 	): Promise<AxiosResponse<IFavoriteItem[]>> {
-		return $api.post<IFavoriteItem[]>('/getFavorite', { userId });
+		return $api.get<IFavoriteItem[]>('/getFavorite', {
+			params: { userId },
+		});
 	}
 	static addFavorites(
 		userId: string,
 		favorites: IFavoriteItem[]
 	): Promise<AxiosResponse<IFavorites>> {
-		return $api.post<IFavorites>('/addFavorite', {
-			userId,
-			favorites,
-		});
+		return $api.patch<IFavorites>(
+			'/addFavorite',
+			{ favorites },
+			{
+				params: { userId },
+			}
+		);
 	}
-	static removeFavorite(
+	static removeFavoriteById(
 		userId: string,
 		favoriteId: number
 	): Promise<AxiosResponse<IFavorites>> {
-		return $api.post<IFavorites>('/removeFavorite', {
-			userId,
-			favoriteId,
+		return $api.delete<IFavorites>('/removeFavorite', {
+			params: {
+				userId,
+				favoriteId,
+			},
+		});
+	}
+	static clearFavorites(userId: string): Promise<AxiosResponse<IFavorites>> {
+		return $api.delete<IFavorites>('/clearFavorite', {
+			params: {
+				userId,
+			},
 		});
 	}
 }

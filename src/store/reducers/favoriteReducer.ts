@@ -4,7 +4,7 @@ export enum FavoriteActionTypes {
 	getFavorites = 'getFavorites',
 	addFavorites = 'addFavorites',
 	removeFavoriteById = 'removeFavoriteById',
-	// clearFavorites = 'clearFavorites',
+	clearFavorites = 'clearFavorites',
 }
 interface GetFavorite {
 	type: FavoriteActionTypes.getFavorites;
@@ -18,11 +18,14 @@ interface RemoveFavoriteById {
 	type: FavoriteActionTypes.removeFavoriteById;
 	payload: number;
 }
-// interface ClearFavorites {
-// 	type: FavoriteActionTypes.clearFavorites;
-// }
-export type FavoriteAction = GetFavorite | AddFavorite | RemoveFavoriteById;
-// | ClearFavorites;
+interface ClearFavorites {
+	type: FavoriteActionTypes.clearFavorites;
+}
+export type FavoriteAction =
+	| GetFavorite
+	| AddFavorite
+	| RemoveFavoriteById
+	| ClearFavorites;
 
 interface IFavoriteState {
 	favorites: IFavoriteItem[];
@@ -53,11 +56,11 @@ export const favoriteReducer = (
 					(favorite) => favorite.id !== action.payload
 				),
 			};
-		// case FavoriteActionTypes.clearFavorites:
-		// 	return {
-		// 		...state,
-		// 		favorites: [],
-		// 	};
+		case FavoriteActionTypes.clearFavorites:
+			return {
+				...state,
+				favorites: [],
+			};
 		default:
 			return state;
 	}

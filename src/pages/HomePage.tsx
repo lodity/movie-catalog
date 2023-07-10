@@ -1,8 +1,10 @@
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import BaseButton from '../components/UI/BaseButton/BaseButton';
 import UserService from '../services/UserService';
+import { useActions } from '../hooks/useActions';
 
 const HomePage = () => {
+	const { clearFavorites } = useActions();
 	const { isAuthenticated, isLoading, user } = useTypedSelector(
 		(state) => state.auth
 	);
@@ -40,6 +42,9 @@ const HomePage = () => {
 		<>
 			<h1>Hello</h1>
 			<BaseButton onClick={getUsers}>getUsers</BaseButton>
+			<BaseButton onClick={() => clearFavorites(user.id, false)}>
+				clearFavorites
+			</BaseButton>
 			{authInformation}
 		</>
 	);
