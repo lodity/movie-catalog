@@ -24,6 +24,7 @@ export const privateRoutes: Route[] = [
 	{ path: '/:type/:id', element: <DetailsPage /> },
 ];
 export const publicRoutes = [
+	{ path: '/movies', element: <MoviesPage /> },
 	{ path: '/login', element: <SignInPage signInOption="login" /> },
 	{
 		path: '/registration',
