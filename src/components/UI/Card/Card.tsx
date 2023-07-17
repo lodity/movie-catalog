@@ -33,7 +33,7 @@ const Card: FC<Interface> = ({ movie, type }) => {
 			{!isAuthenticated ? (
 				<Link to="/login" className={classes.favorite} />
 			) : (
-				<ButtonAddFavorite movie={movie} type={type} />
+				<ButtonAddFavorite movie={movie} type={type} place="card" />
 			)}
 		</li>
 	);

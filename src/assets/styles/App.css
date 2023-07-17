@@ -218,7 +218,9 @@ body {
 }
 .content-details__title-block {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   align-self: flex-start;
   padding: 40px;
   gap: 8px;

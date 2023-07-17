@@ -31,6 +31,12 @@ interface IDetails {
 	number_of_episodes: number;
 	episode_run_time: number[];
 }
+export interface IDetailsMovie extends IDetails {
+	original_title: string;
+}
+export interface IDetailsTV extends IDetails {
+	original_name: string;
+}
 interface ISearchArgs {
 	searchType: SearchType;
 	searchTerm: string;
@@ -54,7 +60,7 @@ export const theMovieDBAPI = createApi({
 				},
 			}),
 		}),
-		movie: build.query<IDetails | undefined, number>({
+		movie: build.query<IDetailsMovie | undefined, number>({
 			query: (id: number) => ({
 				url: `/movie/${id}`,
 				params: {
@@ -62,7 +68,7 @@ export const theMovieDBAPI = createApi({
 				},
 			}),
 		}),
-		tv: build.query<IDetails | undefined, number>({
+		tv: build.query<IDetailsTV | undefined, number>({
 			query: (id: number) => ({
 				url: `/tv/${id}`,
 				params: {

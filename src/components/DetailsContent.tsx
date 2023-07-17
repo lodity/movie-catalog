@@ -1,7 +1,8 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useParams } from 'react-router';
 import { theMovieDBAPI } from '../services/TheMovieDBService';
 import RatingButton from './UI/RatingButton/RatingButton';
+import ButtonAddFavorite from './UI/ButtonAddFavorite/ButtonAddFavorite';
 
 const DetailsContent: FC = () => {
 	const linkId = useParams();
@@ -27,6 +28,11 @@ const DetailsContent: FC = () => {
 						<h1 className="content-details__title">
 							{type === 'movie' ? data.title : data.name}
 						</h1>
+						<ButtonAddFavorite
+							movie={data}
+							type={type}
+							place="details"
+						/>
 					</div>
 					<div className="content-details__main-block main-block">
 						<div className="main-block__poster">
