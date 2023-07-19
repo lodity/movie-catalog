@@ -4,7 +4,8 @@ import AuthService from '../../services/AuthService';
 import IUser from '../../models/IUser';
 import axios, { AxiosResponse } from 'axios';
 import AuthResponse from '../../models/AuthResponse';
-import { API_URL } from '../../http';
+import { SERVER_URL } from '../../http';
+import UserService from '../../services/UserService';
 
 function setAuthData(
 	dispatch: Dispatch<AuthAction>,
@@ -93,12 +94,35 @@ export const checkAuth = () => {
 			payload: true,
 		});
 		try {
-			await axios.get(`${API_URL}/checkAuth`, {
+			await axios.get(`${SERVER_URL}/api/checkAuth`, {
 				withCredentials: true,
 			});
 		} catch (e: any) {
 			console.log(e.response?.data?.message);
 			setAuthData(dispatch, null, false, {} as IUser);
+		} finally {
+			dispatch({
+				type: AuthActionTypes.setIsLoading,
+				payload: false,
+			});
+		}
+	};
+};
+export const changeAvatar = (formData: FormData) => {
+	return async (dispatch: Dispatch<AuthAction>) => {
+		dispatch({
+			type: AuthActionTypes.setIsLoading,
+			payload: true,
+		});
+		try {
+			const response = await UserService.changeAvatar(formData);
+			console.log(response.data);
+			dispatch({
+				type: AuthActionTypes.setUser,
+				payload: response.data,
+			});
+		} catch (e: any) {
+			console.log(e.response?.data?.message);
 		} finally {
 			dispatch({
 				type: AuthActionTypes.setIsLoading,
