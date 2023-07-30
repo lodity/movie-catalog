@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import SearchInput from '../SearchInput/SearchInput';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { useActions } from '../../../hooks/useActions';
@@ -93,7 +93,7 @@ const Navbar = () => {
 					</NavLink>
 				</li>
 				<li className="header__item">
-					<NavLink to="/TVshows">
+					<NavLink to="/tv">
 						<div>TV Shows</div>
 					</NavLink>
 				</li>

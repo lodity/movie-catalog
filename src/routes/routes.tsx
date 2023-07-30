@@ -5,6 +5,7 @@ import DetailsPage from '../pages/DetailsPage';
 import SignInPage from '../pages/SignInPage/SignInPage';
 import { Navigate } from 'react-router-dom';
 import AccountPage from '../pages/AccountPage/AccountPage';
+import TVPage from '../pages/TVPage/TVPage';
 
 interface Route {
 	path: string;
@@ -20,11 +21,13 @@ export const privateRoutes: Route[] = [
 		element: <Navigate to="/" />,
 	},
 	{ path: '/movies', element: <MoviesPage /> },
+	{ path: '/tv', element: <TVPage /> },
 	{ path: '*', element: <NotFoundPage /> },
 	{ path: '/:type/:id', element: <DetailsPage /> },
 ];
 export const publicRoutes = [
 	{ path: '/movies', element: <MoviesPage /> },
+	{ path: '/tv', element: <TVPage /> },
 	{ path: '/login', element: <SignInPage signInOption="login" /> },
 	{
 		path: '/registration',

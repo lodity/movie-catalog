@@ -24,9 +24,7 @@ const CardsContainer: FC<Interface> = ({ method }) => {
 	useEffect(() => {
 		if (data) {
 			setType(
-				data.results[0].first_air_date === undefined
-					? 'movie'
-					: 'TV serial'
+				data.results[0].first_air_date === undefined ? 'movie' : 'tv'
 			);
 		}
 	}, [data]);
@@ -67,10 +65,7 @@ const CardsContainer: FC<Interface> = ({ method }) => {
 							))}
 					{isFetching && placeholder}
 				</ul>
-				<div
-					ref={lastElement}
-					style={{ height: 20, background: 'red' }}
-				/>
+				<div ref={lastElement} style={{ height: 20 }} />
 			</div>
 		</div>
 	);

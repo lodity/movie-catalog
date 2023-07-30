@@ -60,6 +60,15 @@ export const theMovieDBAPI = createApi({
 				},
 			}),
 		}),
+		popularTVs: build.query<ISearchResponse | undefined, number>({
+			query: (page: number) => ({
+				url: '/tv/popular',
+				params: {
+					api_key: API_KEY,
+					page: page,
+				},
+			}),
+		}),
 		movie: build.query<IDetailsMovie | undefined, number>({
 			query: (id: number) => ({
 				url: `/movie/${id}`,
