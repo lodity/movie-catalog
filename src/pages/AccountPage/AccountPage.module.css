@@ -1,32 +1,32 @@
 .container {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 15px;
-  align-items: center;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 15px;
+	align-items: center;
 }
 
 .avatar {
-  width: 150px;
-  height: 150px;
+	width: 150px;
+	height: 150px;
 }
 
 .avatarButton {
-  border-radius: 50%;
-  overflow: hidden;
+	border-radius: 50%;
+	overflow: hidden;
 }
 
 .cardList {
-  display: flex;
-  width: 85vw;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: flex-start;
+	display: flex;
+	max-width: 1200px;
+	flex-wrap: wrap;
+	gap: 15px;
+	justify-content: flex-start;
 }
 
 .hiddenFileInput {
-  display: none;
+	display: none;
 }
 
 /*# sourceMappingURL=AccountPage.module.css.map */

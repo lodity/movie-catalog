@@ -5,7 +5,6 @@ import { IFavoriteItem } from '../../models/IFavorites';
 import { useActions } from '../../hooks/useActions';
 import Card from '../../components/UI/Card/Card';
 import BaseButton from '../../components/UI/BaseButton/BaseButton';
-import UserService from '../../services/UserService';
 import { SERVER_URL } from '../../http';
 
 const AccountPage = () => {
@@ -17,9 +16,6 @@ const AccountPage = () => {
 	const [favorites, setFavorites] = useState<IFavoriteItem[]>([]);
 	const hiddenFileInput = useRef<HTMLInputElement>(null);
 
-	async function getUsers() {
-		console.log(await UserService.fetchUsers());
-	}
 	const handleClick = () => {
 		hiddenFileInput.current?.click();
 	};
@@ -64,17 +60,20 @@ const AccountPage = () => {
 						: 'Activation link has been sent to your email'}
 				</p>
 
-				<BaseButton onClick={getUsers}>getUsers</BaseButton>
 				<BaseButton onClick={() => clearFavorites(user.id, false)}>
 					clearFavorites
 				</BaseButton>
-			</div>
 
-			<ul className={classes.cardList}>
-				{favorites.map((item) => (
-					<Card type={item.media_type} movie={item} key={item.id} />
-				))}
-			</ul>
+				<ul className={classes.cardList}>
+					{favorites.map((item) => (
+						<Card
+							type={item.media_type}
+							movie={item}
+							key={item.id}
+						/>
+					))}
+				</ul>
+			</div>
 		</>
 	);
 };
