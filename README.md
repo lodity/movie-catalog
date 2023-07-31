@@ -1,46 +1,82 @@
-# Getting Started with Create React App
+# Movie-catalog
+My first independent project on React framework with typescript.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Description](#description)
+- [Installation](#installation)
+- [Frontend Setup](#frontend-setup)
+- [Backend Setup](#backend-setup)
+- [Usage](#usage)
+- [License](#license)
 
-In the project directory, you can run:
+## Description
+On this site, you can search and save movies and series to your favorites for later viewing. There is a JWT authorization system, although you can use the site without it. In your personal account, you can change your avatar, as well as your favorite movies and TV shows.
 
-### `npm start`
+## Installation
+Please follow these steps to get the project up and running on your local machine.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Clone the repositories:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+git clone https://github.com/lodity/movie-catalog.git
+git clone https://github.com/lodity/movie-catalog-server.git
+```
 
-### `npm test`
+## Frontend Setup
+The frontend of the project is built using React.
+Before running the frontend, ensure that you have Node.js and npm (Node Package Manager) installed on your system.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Change into the project directory:
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd movie-catalog
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install the required dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+3. Start the frontend development server:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm start
+```
+The development server should now be running at http://localhost:3000.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Backend Setup
+The backend of the project is built using Node.js.
+Before running the backend, ensure that you have Node.js and npm (Node Package Manager) installed on your system.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Change into the project directory:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+cd movie-catalog-server
+```
 
-## Learn More
+2. Install the required dependencies:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Set up environment variables:
+
+Create a .env file in the backend directory and configure any necessary environment variables (e.g., database connection information, API keys, etc.). A .env.example file is provided as a reference.
+
+4. Start the backend development server:
+
+```bash
+npm run dev
+```
+The development server should now be running at http://localhost:5000.
+
+## Usage
+Tabs for moving around the site are located at the top of the site.
+
+
+## License
+This project is licensed under the MIT License.
