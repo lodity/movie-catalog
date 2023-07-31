@@ -1,0 +1,8 @@
+.favorite {
+	width: 36px;
+	height: 36px;
+	background-color: unset;
+	background-image: url('/src/assets/images/ratingStar.svg');
+	background-repeat: no-repeat;
+	background-size: contain;
+}

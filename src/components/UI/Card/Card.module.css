@@ -34,4 +34,16 @@
   top: 18px;
 }
 
+.favorite {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 24px;
+  height: 24px;
+  background-color: unset;
+  background-image: url("/src/assets/images/ratingStar.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 /*# sourceMappingURL=Card.module.css.map */

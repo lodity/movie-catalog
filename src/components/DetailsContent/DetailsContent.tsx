@@ -1,10 +1,14 @@
 import { FC } from 'react';
 import { useParams } from 'react-router';
-import { theMovieDBAPI } from '../services/TheMovieDBService';
-import RatingButton from './UI/RatingButton/RatingButton';
-import ButtonAddFavorite from './UI/ButtonAddFavorite/ButtonAddFavorite';
+import { theMovieDBAPI } from '../../services/TheMovieDBService';
+import RatingButton from '../UI/RatingButton/RatingButton';
+import ButtonAddFavorite from '../UI/ButtonAddFavorite/ButtonAddFavorite';
+import { Link } from 'react-router-dom';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
+import classes from './DetailsContent.module.css';
 
 const DetailsContent: FC = () => {
+	const { isAuthenticated } = useTypedSelector((state) => state.auth);
 	const linkId = useParams();
 	let type: string = linkId.type ? linkId.type : '';
 	let id: number = linkId.id ? parseInt(linkId.id) : 0;
@@ -28,11 +32,15 @@ const DetailsContent: FC = () => {
 						<h1 className="content-details__title">
 							{type === 'movie' ? data.title : data.name}
 						</h1>
-						<ButtonAddFavorite
-							movie={data}
-							type={type}
-							place="details"
-						/>
+						{!isAuthenticated ? (
+							<Link to="/login" className={classes.favorite} />
+						) : (
+							<ButtonAddFavorite
+								movie={data}
+								type={type}
+								place="details"
+							/>
+						)}
 					</div>
 					<div className="content-details__main-block main-block">
 						<div className="main-block__poster">

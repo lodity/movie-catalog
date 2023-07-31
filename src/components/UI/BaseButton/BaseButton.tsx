@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler } from 'react';
+import { FC, MouseEventHandler } from 'react';
 import classes from './BaseButton.module.css';
 
 interface BaseButtonProps {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import SearchInput from '../SearchInput/SearchInput';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';

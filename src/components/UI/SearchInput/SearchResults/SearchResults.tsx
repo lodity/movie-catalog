@@ -5,6 +5,7 @@ import classes from './SearchResults.module.css';
 import ResultItem from './ResultItem/ResultItem';
 import { useObserver } from '../../../../hooks/useObserver';
 import { ISearchResults } from '../../../../models/ISearchResults';
+
 interface Interface {
 	searchType: SearchType;
 	include_adult: boolean;

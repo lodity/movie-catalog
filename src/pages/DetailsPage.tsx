@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import DetailsContent from '../components/DetailsContent';
+import DetailsContent from '../components/DetailsContent/DetailsContent';
 
 const DetailsPage = () => {
 	return (

@@ -1,4 +1,3 @@
-import React from 'react';
 import BaseButton from '../components/UI/BaseButton/BaseButton';
 import { Link } from 'react-router-dom';
 

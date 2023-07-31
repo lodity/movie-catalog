@@ -32,6 +32,7 @@ const ButtonAddFavorite: FC<Interface> = ({ movie, type, place }) => {
 								'original_name' in movie
 									? movie.original_name
 									: movie.original_title,
+							title: 'name' in movie ? movie.name : movie.title,
 							media_type: type,
 						},
 					]);

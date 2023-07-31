@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
+import { FC, useEffect, useMemo, useRef, useState } from 'react';
 import Card from './UI/Card/Card';
 import { useObserver } from '../hooks/useObserver';
 import CardPlaceholder from './UI/CardPlaceholder/CardPlaceholder';

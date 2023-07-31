@@ -1,5 +1,4 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { privateRoutes, publicRoutes } from '../routes/routes';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 

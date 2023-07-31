@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react';
+import { ChangeEvent, FC, useEffect, useState } from 'react';
 import classes from './SearchInput.module.css';
 import SearchResults from './SearchResults/SearchResults';
 import { useDebounce } from '../../../hooks/useDebounce';

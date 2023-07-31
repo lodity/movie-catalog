@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Login from '../../components/Login';
 import Registration from '../../components/Registration';
 

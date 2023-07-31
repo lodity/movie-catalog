@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import BaseButton from './UI/BaseButton/BaseButton';
 import { useActions } from '../hooks/useActions';
 
