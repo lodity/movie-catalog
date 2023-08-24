@@ -65,7 +65,10 @@ const CardsContainer: FC<Interface> = ({ method }) => {
 							))}
 					{isFetching && placeholder}
 				</ul>
-				<div ref={lastElement} style={{ height: 20 }} />
+				<div
+					ref={lastElement}
+					style={{ margin: '200px 0px', height: 20 }}
+				/>
 			</div>
 		</div>
 	);
