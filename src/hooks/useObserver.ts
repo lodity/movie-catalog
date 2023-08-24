@@ -17,6 +17,6 @@ export const useObserver = async (
 		}
 	};
 
-	observer.current = await new IntersectionObserver(cb);
+	observer.current = new IntersectionObserver(cb);
 	observer.current.observe(ref.current);
 };
