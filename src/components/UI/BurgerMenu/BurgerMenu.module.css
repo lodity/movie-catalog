@@ -1,0 +1,104 @@
+.menu {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  transform: translateX(-130%);
+  transition: transform 0.25s ease-in-out;
+}
+
+.menu.active {
+  transform: translateX(0);
+}
+
+.blur {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 30%;
+  backdrop-filter: blur(1px);
+}
+@media screen and (max-width: 768px) {
+  .blur {
+    display: none;
+  }
+}
+
+.content {
+  position: relative;
+  width: 30%;
+  height: 100%;
+  background: rgba(32, 40, 62, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (max-width: 1280px) {
+  .content {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .content {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .content {
+    width: 100%;
+  }
+}
+
+.header {
+  padding: 16px;
+  font-size: 2rem;
+  color: white;
+  border-bottom: 1px solid white;
+  width: 100%;
+  text-align: center;
+}
+
+.close {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+.close:before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  width: 30px;
+  height: 2px;
+  background: rgb(215, 215, 218);
+  border-radius: 5%;
+  transform: rotate(-45deg);
+}
+.close:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  width: 30px;
+  height: 2px;
+  background: rgb(215, 215, 218);
+  border-radius: 5%;
+  transform: rotate(45deg);
+}
+@media (hover: hover) {
+  .close {
+    cursor: pointer;
+  }
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/*# sourceMappingURL=BurgerMenu.module.css.map */
