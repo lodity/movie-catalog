@@ -14,6 +14,7 @@ const BurgerMenu: FC<Interface> = ({
 	isActive,
 	setIsActive,
 }) => {
+	console.log(isActive);
 	return (
 		<div
 			className={classes.menu + ' ' + (isActive ? classes.active : '')}

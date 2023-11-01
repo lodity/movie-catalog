@@ -19,7 +19,7 @@ const DetailsContent: FC = () => {
 	if (data) console.log(data);
 
 	return (
-		<div>
+		<>
 			{data && (
 				<div className="details__content content-details">
 					<div className="content-details__backdrop">
@@ -161,7 +161,7 @@ const DetailsContent: FC = () => {
 					</div>
 				</div>
 			)}
-		</div>
+		</>
 	);
 };
 

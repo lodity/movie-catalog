@@ -57,8 +57,32 @@ body {
   justify-content: space-between;
   padding: 16px 120px;
   gap: 16px;
-  max-width: 1440px;
   width: 100%;
+}
+@media (min-width: 1440px) {
+  .header {
+    max-width: 1440px;
+  }
+}
+@media (max-width: 1280px) {
+  .header {
+    padding: 16px 100px;
+  }
+}
+@media (max-width: 1024px) {
+  .header {
+    padding: 16px 80px;
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 40px;
+  }
+}
+@media (max-width: 480px) {
+  .header {
+    padding: 12px 5.36vw;
+  }
 }
 .header__searchLogo {
   display: flex;
@@ -93,11 +117,65 @@ body {
   text-decoration: underline;
 }
 
+.burgerButton {
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+@media (hover: hover) {
+  .burgerButton {
+    cursor: pointer;
+  }
+}
+.burgerButton:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 30px;
+  background: #fff;
+  height: 2px;
+}
+.burgerButton:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 30px;
+  background: #fff;
+  height: 2px;
+}
+.burgerButton span {
+  position: absolute;
+  top: 14px;
+  width: 30px;
+  background: #fff;
+  height: 2px;
+}
+
 .headerSearch {
   width: 400px;
 }
 .headerSearch input {
-  min-width: 100%;
+  width: 100%;
+}
+@media (max-width: 1024px) {
+  .headerSearch {
+    width: 300px;
+  }
+}
+@media (max-width: 968px) {
+  .headerSearch {
+    width: 220px;
+  }
+}
+@media (max-width: 800px) {
+  .headerSearch {
+    width: 300px;
+  }
+}
+@media (max-width: 480px) {
+  .headerSearch {
+    width: 40vw;
+  }
 }
 
 .notFoundPage {

@@ -15,6 +15,27 @@ const SearchInput: FC<Interface> = ({ classUi, searchType }) => {
 	const debouncedSearchTerm = useDebounce(searchTerm, 1000);
 	const location = useLocation();
 	const [pageChanged, setPageChanged] = useState(false);
+	const [searchPlaceholder, setSearchPlaceholder] = useState(
+		'Search Movies or TV Shows'
+	);
+
+	// TODO Adaptive dropDown
+	const handleResize = () => {
+		if (window.innerWidth >= 968) {
+			setSearchPlaceholder('Search Movies or TV Shows');
+		} else if (window.innerWidth < 480) {
+			setSearchPlaceholder('Search...');
+		} else if (window.innerWidth < 968) {
+			setSearchPlaceholder('Breaking bad...');
+		}
+	};
+	useEffect(() => {
+		window.addEventListener('resize', handleResize, false);
+		handleResize();
+		return () => {
+			window.removeEventListener('resize', handleResize, false);
+		};
+	}, []);
 
 	// Close results on page change
 	useEffect(() => {
@@ -55,7 +76,7 @@ const SearchInput: FC<Interface> = ({ classUi, searchType }) => {
 					setSearchTerm(e.target.value)
 				}
 				type="text"
-				placeholder="Search MoviesPage or TV Shows"
+				placeholder={searchPlaceholder}
 				className={classes.searchInput}
 			/>
 			{!pageChanged && searchTerm !== '' && (

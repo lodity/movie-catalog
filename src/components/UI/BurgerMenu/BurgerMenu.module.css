@@ -34,6 +34,14 @@
   flex-direction: column;
   align-items: center;
 }
+.content ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  margin-top: 12px;
+}
 @media screen and (max-width: 1280px) {
   .content {
     width: 40%;
@@ -55,8 +63,14 @@
   font-size: 2rem;
   color: white;
   border-bottom: 1px solid white;
+  background: rgb(32, 40, 62);
   width: 100%;
   text-align: center;
+}
+@media screen and (max-width: 370px) {
+  .header {
+    text-align: left;
+  }
 }
 
 .close {
@@ -72,7 +86,7 @@
   top: 15px;
   width: 30px;
   height: 2px;
-  background: rgb(215, 215, 218);
+  background: #ebeef5;
   border-radius: 5%;
   transform: rotate(-45deg);
 }
@@ -82,7 +96,7 @@
   top: 15px;
   width: 30px;
   height: 2px;
-  background: rgb(215, 215, 218);
+  background: #ebeef5;
   border-radius: 5%;
   transform: rotate(45deg);
 }
@@ -91,14 +105,15 @@
     cursor: pointer;
   }
 }
-
-ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 12px;
-  margin-top: 12px;
+@media screen and (max-width: 768px) {
+  .close {
+    right: 40px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .close {
+    right: 5.36vw;
+  }
 }
 
 /*# sourceMappingURL=BurgerMenu.module.css.map */

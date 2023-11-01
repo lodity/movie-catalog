@@ -2,12 +2,17 @@ import { NavLink } from 'react-router-dom';
 import SearchInput from '../SearchInput/SearchInput';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { useActions } from '../../../hooks/useActions';
+import { ReactFragment, useEffect, useMemo, useState } from 'react';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 
 const Navbar = () => {
 	const { isAuthenticated } = useTypedSelector((state) => state.auth);
 	const { logout } = useActions();
+	const [isMenuActive, setIsMenuActive] = useState(false);
+	const [isBurgerShow, setIsBurgerShow] = useState(false);
+	console.log('GLOBAL Render');
 
-	let authLinks;
+	let authLinks: JSX.Element | ReactFragment;
 	if (!isAuthenticated) {
 		authLinks = (
 			<li className="header__item">
@@ -62,6 +67,62 @@ const Navbar = () => {
 		);
 	}
 
+	let navAreaContent: JSX.Element | ReactFragment = (
+		<ul className="header__list">
+			<li className="header__item">
+				<NavLink to="/movies">
+					<div>Movies</div>
+				</NavLink>
+			</li>
+			<li className="header__item">
+				<NavLink to="/tv">
+					<div>TV Shows</div>
+				</NavLink>
+			</li>
+			{authLinks}
+		</ul>
+	);
+	const handleResize = () => {
+		if (window.innerWidth >= 800) {
+			setIsBurgerShow(false);
+		} else if (window.innerWidth < 800) {
+			setIsBurgerShow(true);
+		}
+	};
+	useEffect(() => {
+		window.addEventListener('resize', handleResize, false);
+		handleResize();
+		return () => {
+			window.removeEventListener('resize', handleResize, false);
+		};
+	}, []);
+	const navAreaJSX = useMemo(() => {
+		if (window.innerWidth >= 800) {
+			return navAreaContent;
+		} else if (window.innerWidth < 800) {
+			return (
+				<>
+					<div
+						className="burgerButton"
+						onClick={() => {
+							console.log('Burger');
+							setIsMenuActive(true);
+							console.log(isMenuActive);
+						}}
+					>
+						<span />
+					</div>
+					<BurgerMenu
+						header="Movie catalog"
+						content={navAreaContent}
+						isActive={isMenuActive}
+						setIsActive={setIsMenuActive}
+					/>
+				</>
+			);
+		}
+	}, [isBurgerShow, navAreaContent]);
+
 	return (
 		<header className="header">
 			<div className="header__searchLogo">
@@ -85,19 +146,29 @@ const Navbar = () => {
 				</NavLink>
 				<SearchInput classUi="headerSearch" searchType="multi" />
 			</div>
-			<ul className="header__list">
-				<li className="header__item">
-					<NavLink to="/movies">
-						<div>Movies</div>
-					</NavLink>
-				</li>
-				<li className="header__item">
-					<NavLink to="/tv">
-						<div>TV Shows</div>
-					</NavLink>
-				</li>
-				{authLinks}
-			</ul>
+			<nav>
+				{navAreaJSX}
+				{/*{isBurgerShow ? (*/}
+				{/*	<>*/}
+				{/*		<div*/}
+				{/*			className="burgerButton"*/}
+				{/*			onClick={() =>*/}
+				{/*				setIsMenuActive((prevState) => !prevState)*/}
+				{/*			}*/}
+				{/*		>*/}
+				{/*			<span />*/}
+				{/*		</div>*/}
+				{/*		<BurgerMenu*/}
+				{/*			header="Movie catalog"*/}
+				{/*			content={navAreaContent}*/}
+				{/*			isActive={isMenuActive}*/}
+				{/*			setIsActive={setIsMenuActive}*/}
+				{/*		/>*/}
+				{/*	</>*/}
+				{/*) : (*/}
+				{/*	navAreaContent*/}
+				{/*)}*/}
+			</nav>
 		</header>
 	);
 };

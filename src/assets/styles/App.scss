@@ -40,8 +40,23 @@ body {
 	padding: 16px 120px;
 	gap: 16px;
 
-	max-width: 1440px;
 	width: 100%;
+
+	@media (min-width: 1440px) {
+		max-width: 1440px;
+	}
+	@media (max-width: 1280px) {
+		padding: 16px 100px;
+	}
+	@media (max-width: 1024px) {
+		padding: 16px 80px;
+	}
+	@media (max-width: 768px) {
+		padding: 16px 40px;
+	}
+	@media (max-width: 480px) {
+		padding: 12px 5.36vw;
+	}
 
 	&__searchLogo {
 		display: flex;
@@ -75,10 +90,56 @@ body {
 		}
 	}
 }
+
+.burgerButton {
+	width: 30px;
+	height: 30px;
+	position: relative;
+	@media (hover: hover) {
+		cursor: pointer;
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		width: 30px;
+		background: #fff;
+		height: 2px;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		width: 30px;
+		background: #fff;
+		height: 2px;
+	}
+	span {
+		position: absolute;
+		top: 14px;
+		width: 30px;
+		background: #fff;
+		height: 2px;
+	}
+}
+
 .headerSearch {
 	width: 400px;
 	input {
-		min-width: 100%;
+		width: 100%;
+	}
+	@media (max-width: 1024px) {
+		width: 300px;
+	}
+	@media (max-width: 968px) {
+		width: 220px;
+	}
+	@media (max-width: 800px) {
+		width: 300px;
+	}
+	@media (max-width: 480px) {
+		width: 40vw;
 	}
 }
 
