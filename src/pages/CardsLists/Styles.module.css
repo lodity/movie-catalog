@@ -18,3 +18,14 @@
 	letter-spacing: -0.02em;
 	margin-bottom: 24px;
 }
+
+@media (max-width: 600px) {
+	.container {
+		padding: 0 40px;
+	}
+}
+@media (max-width: 380px) {
+	.container {
+		padding: 0 12px;
+	}
+}
